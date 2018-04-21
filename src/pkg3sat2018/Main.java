@@ -31,7 +31,7 @@ public class Main {
         
         Individuo.clausulas=Herramientas.leeArchivo();
         System.out.println();
-        GeneticoSatV1 gen = new GeneticoSatV1(45,0.1,10000);
+        GeneticoSatV1 gen = new GeneticoSatV1(45,0.1,20000);
         gen.evolucionar();
         
         

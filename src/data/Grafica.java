@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Herramientas;
+package data;
 
+import java.util.ArrayList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -35,19 +36,22 @@ public class Grafica {
     public void agregarDatoSerie(String nombre, XYDataItem dato){
         this.series.getSeries(nombre).add(dato);
     }
-    public void agregarSerie(String nombre, Integer[] datos){
+    public void agregarSerie(String nombre, ArrayList<Integer> datos){
         XYSeries serie = new XYSeries(nombre);
-        for(int i=0; i<datos.length;i++){
-            serie.add(i, datos[i]);
+        for(int i=0; i<datos.size();i++){
+            System.out.println();
+            serie.add(i, datos.get(i));
         }
         this.series.addSeries(serie);
         
     }
     public void crearYmostrarGrafica(){
-        this.grafica = ChartFactory.createXYLineChart(titulo, ejeX, ejeX, series);
+        this.grafica = ChartFactory.createXYLineChart(titulo, ejeX, ejeY, series);
         ChartFrame frame = new ChartFrame("Grafica Chida",grafica);
         frame.setVisible(true);
         frame.setSize(600,400);
     }
+
+    
     
 }

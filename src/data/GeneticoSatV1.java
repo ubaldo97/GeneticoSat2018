@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Herramientas.Grafica.*;
+import data.Grafica.*;
 
 /**
  *
@@ -86,9 +86,9 @@ System.out.println("Mejor mejor: "+mejor.getFitness());
          } catch (IOException ex) {
              Logger.getLogger(GeneticoSatV1.class.getName()).log(Level.SEVERE, null, ex);
          }
-    Grafica grafica = new Grafica("Mejores","generacion","Fit");
-    grafica.agregarSerie(datosG, "fit");
-    grafica.creaYmuestraGrafica();
+    Grafica grafica = new Grafica("Generación","Fitness","Fit");
+    grafica.agregarSerie( "fit",datosG);
+    grafica.crearYmostrarGrafica();
         
        
        }
