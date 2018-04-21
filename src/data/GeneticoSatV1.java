@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Herramientas.Grafica.*;
 
 /**
  *
@@ -39,7 +40,7 @@ public class GeneticoSatV1 {
             this.pobActual.calcularMayorMenor();
             Individuo mejor = this.pobActual.getMayor();
             
-            ArrayList<Double> datosG = new ArrayList<>();
+            ArrayList<Integer> datosG = new ArrayList<>();
             
             
             
@@ -72,22 +73,23 @@ for(int g=0; g<this.numGeneraciones;g++){
     this.pobActual = new Poblacion(nuevaPoblacion);
     if (this.pobActual.getMayor().getFitness()>mejor.getFitness()) {
         mejor = this.pobActual.getMayor();
-        //datosG.add(mejor.getFitness());
+        datosG.add(mejor.getFitness());
     }
     System.out.println("Mejor "+g+": "+this.pobActual.getMayor().getFitness());
     
 }
-// guardar el mejor
-// Herramientas.guardarMejorIndividuo(mejor);
+        
 System.out.println("Mejor mejor: "+mejor.getFitness());
 
-//Herramientas.guardarMejorIndividuo(mejor);
-//Grafica grafica = new Grafica("Mejores","generacion","Fit");
-//grafica.agregarSerie(datosG,"fit");
-//grafica.creaYmuestraGrafica();
-//        } catch (IOException ex) {
-//            Logger.getLogger(GeneticoTSPv2.class.getName()).log(Level.SEVERE, null, ex);
-      // }
+         try {
+             Herramientas.guardarMejorIndividuo(mejor);
+         } catch (IOException ex) {
+             Logger.getLogger(GeneticoSatV1.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    Grafica grafica = new Grafica("Mejores","generacion","Fit");
+    grafica.agregarSerie(datosG, "fit");
+    grafica.creaYmuestraGrafica();
+        
        
        }
 
