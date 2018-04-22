@@ -88,36 +88,21 @@ public class Poblacion {
      return grupo;
     }
     
-//    public ArrayList<Individuo> generarGrupoAleatorio(int mascara[],int numInd,int numIndR){
-//    
-//        ArrayList<Individuo> aux = new ArrayList<>();
-//        ArrayList<Individuo> grupo = new ArrayList<>();
-//        Random ran = new Random();
-//        // seleccionar de forma aleatorio a los ind
-//        for(int x=0; x<numInd;x++){
-//         grupo.add(new Individuo
-//        (this.individuos.get(ran.nextInt(this.individuos.size())).getGenotipo()));
-//        }
-//        generarIndividuos(grupo,aux,mascara,numInd,numIndR);
-//                      
-//     return aux;
-//    }
+
     
-    public ArrayList<Individuo> generarGrupoMejores(int mascara[],int numInd,int numIndR){
-    
-        ArrayList<Individuo> aux = new ArrayList<>();
-        ArrayList<Individuo> grupo = new ArrayList<>();
-        Random ran = new Random();
-        Ordenamiento merge = new Ordenamiento();
-        merge.ordenar(this);
-        // seleccionar los mejores
-        for(int x=this.individuos.size()-1; x>=this.individuos.size()-numInd;x--){
-         grupo.add(new Individuo
-        (this.individuos.get(x).getGenotipo()));
+   public ArrayList<Individuo> generarGrupoMejores(int num){
+        Ordenamiento mezcla = new Ordenamiento();
+        mezcla.ordenar(this);
+         int inicio = this.individuos.size()-1;
+        // crear el grupo de mejores
+        ArrayList<Individuo> mejores = new ArrayList<>();
+        for (int x=inicio;x>(inicio-num);x--){      
+         mejores.add(new Individuo(this.individuos.get(x).getGenotipo()));
+        
         }
-        generarIndividuos(grupo,aux,mascara,numInd,numIndR);
-                      
-     return aux;
+              
+        return mejores;
+    
     }
     
      public void recibirMuestra(ArrayList<Individuo> muestra){
