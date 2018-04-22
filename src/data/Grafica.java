@@ -47,7 +47,7 @@ public class Grafica {
     }
     public void crearYmostrarGrafica(){
         this.grafica = ChartFactory.createXYLineChart(titulo, ejeX, ejeY, series);
-        ChartFrame frame = new ChartFrame("Grafica Chida",grafica);
+        ChartFrame frame = new ChartFrame("Grafica Fitness",grafica);
         frame.setVisible(true);
         frame.setSize(600,400);
     }
