@@ -27,7 +27,7 @@ public class GeneticoSatV1 {
         this.probMuta = probMuta;
         this.numGeneraciones = numGeneraciones;
         this.pobActual = new Poblacion(tamPob);
-        this.porMuestra = 15;
+        this.porMuestra = 20;
     }
     
     public void evolucionar(){
@@ -52,12 +52,11 @@ for(int g=0; g<this.numGeneraciones;g++){
     // generar el muestreo
     int cantidadM = (int)(this.tamPob*this.porMuestra/100);
     //generarMuestreo(cantidadM,nuevaPoblacion);
-   
     nuevaPoblacion.recibirMuestra(this.pobActual.generarGrupoAleatorio(cantidadM));
     
     int[] mask = Mascaras.generarMascaraAleatoria(100);
     for(int i=cantidadM;i<this.tamPob;i++){
-        
+       
         // seleccionar a una madre y un padre
         Individuo madre = Seleccion.seleccionTorneoMax(pobActual);
         Individuo padre = Seleccion.seleccionRuleta(pobActual);

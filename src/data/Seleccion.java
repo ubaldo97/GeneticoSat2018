@@ -26,6 +26,7 @@ public class Seleccion {
       public static Individuo seleccionRuleta(Poblacion pob){
       
         double pos = pob.getFitnessPoblacion()*Math.random();
+        
         double suma=0;
         // ahora costruimos la ruleta
         for (Individuo ind: pob.getIndividuos()){

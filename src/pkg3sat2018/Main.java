@@ -30,10 +30,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         
         Individuo.clausulas=Herramientas.leeArchivo();
-        System.out.println();
-        GeneticoSatV1 gen = new GeneticoSatV1(30,0.4,10000);
+        GeneticoSatV1 gen = new GeneticoSatV1(65,0.38,25000);
         gen.evolucionar();
-        
         
         
 //        try {
