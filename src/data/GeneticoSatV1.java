@@ -44,6 +44,7 @@ public class GeneticoSatV1 {
             
             
             
+            
 // agregar el ciclo para las generaciones
 for(int g=0; g<this.numGeneraciones;g++){
     // proceso iterativo de construccion de la

@@ -32,9 +32,9 @@ public class Individuo {
        // asignar 0 o 1 a cada uno de los genes
        for (int x=0; x<dimGenotipo;x++){
            this.genotipo[x]= ran.nextInt(2);
-       
+        calcularFitness();
        }
-       calcularFitness();
+      
       
     }
     public Individuo(int dimGen) {
